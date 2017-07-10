@@ -1,0 +1,37 @@
+name: "radanalyticsio/openshift-zeppelin"
+version: 1.0
+release: dev
+from: "radanalyticsio/openshift-spark:latest"
+user: 185
+labels:
+  - name: "io.k8s.description"
+    value: "A web-based notebook that enables interactive data analytics"
+  - name: "io.k8s.display-name"
+    value: "Apache Zeppelin"
+  - name: "io.openshift.expose-services"
+    value: "8080:http"
+  - name: "io.openshift.tags"
+    value: "radanalytics,apache_zeppelin,notebook"
+envs:
+  - name: PATH
+    value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin
+  - name: ZEPPELIN_HOME
+    value: /opt/zeppelin
+  - name: APP_ROOT
+    value: /opt/app-root
+ports:
+  - 8080
+packages:
+  - epel-release
+  - gcc
+  - python-devel
+cmd:
+  - "/opt/zeppelin/bin/zeppelin.sh"
+scripts:
+  - package: zeppelin
+    exec: run
+  - package: pyspark
+    exec: run
+sources:
+  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.7.2/zeppelin-0.7.2-bin-all.tgz
+    md5sum: 3375305d7818e5be40537bf042c6a987
