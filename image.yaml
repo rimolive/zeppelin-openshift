@@ -1,5 +1,5 @@
 name: "rimolive/openshift-zeppelin"
-version: 1.0
+version: 1.1
 release: dev
 from: "radanalyticsio/openshift-spark:latest"
 user: 185
