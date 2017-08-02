@@ -1,5 +1,5 @@
 name: "rimolive/openshift-zeppelin"
-version: 1.1
+version: 1.2
 release: dev
 from: "radanalyticsio/openshift-spark:latest"
 user: 185
@@ -20,7 +20,7 @@ envs:
   - name: APP_ROOT
     value: /opt/app-root
 ports:
-  - 8080
+  - value: 8080
 packages:
   - epel-release
   - gcc
