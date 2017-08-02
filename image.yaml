@@ -1,4 +1,4 @@
-name: "radanalyticsio/openshift-zeppelin"
+name: "rimolive/openshift-zeppelin"
 version: 1.0
 release: dev
 from: "radanalyticsio/openshift-spark:latest"
