@@ -12,6 +12,8 @@ labels:
     value: "8080:http"
   - name: "io.openshift.tags"
     value: "radanalytics,apache_zeppelin,notebook"
+  - name: "io.openshift.s2i.scripts-url"
+    value: "image:///usr/local/s2i/bin"
 envs:
   - name: PATH
     value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin
@@ -32,6 +34,8 @@ scripts:
     exec: run
   - package: pyspark
     exec: run
+  - package: s2i-interpreters
+    exec: run
 sources:
-  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.7.2/zeppelin-0.7.2-bin-all.tgz
-    md5sum: 3375305d7818e5be40537bf042c6a987
+  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-netinst.tgz
+    md5sum: 1ff97dce6e0241305a6d03c5aa6b3fbd

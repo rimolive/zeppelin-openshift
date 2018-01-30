@@ -6,7 +6,7 @@ Source code to build and run [Apache Zeppelin](http://zeppelin.apache.org/) on t
 to generate the environment to build the Docker image. To build the image, run the following commands:
 
 ```
-$ docker run -it --rm -v $(pwd):/tmp:z dogen:latest --verbose /tmp/image.yaml /tmp/out
+$ docker run -it --rm -v $(pwd):/tmp:z jboss/dogen:latest --verbose /tmp/image.yaml /tmp/out
 $ pushd out; docker build -t <username>/zeppelin-openshift .; popd
 ```
 

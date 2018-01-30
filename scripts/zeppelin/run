@@ -2,13 +2,13 @@
 set -e
 
 ARTFACTS_DIR=/tmp/artifacts
-VERSION=0.7.2
+VERSION=0.7.3
 
 {
 	cd $ARTFACTS_DIR
-	tar xvf zeppelin-$VERSION-bin-all.tgz
-	mv zeppelin-$VERSION-bin-all /opt
-	ln -s /opt/zeppelin-$VERSION-bin-all /opt/zeppelin
+	tar xvf zeppelin-$VERSION-bin-netinst.tgz
+	mv zeppelin-$VERSION-bin-netinst /opt
+	ln -s /opt/zeppelin-$VERSION-bin-netinst /opt/zeppelin
 }
 
 chown 185:0 /opt/zeppelin && chmod a+rwX -R /opt/zeppelin
