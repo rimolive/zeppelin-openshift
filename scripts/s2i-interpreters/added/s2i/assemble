@@ -7,6 +7,11 @@
 #	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
 #
 
+if [ "${SCRIPT_DEBUG}" = "true" ] ; then
+    set -x
+    echo "Script debugging is enabled, allowing bash commands and their arguments to be printed as they are executed"
+fi
+
 # If the 'zeppelin-openshift' assemble script is executed with the '-h' flag, print the usage.
 if [[ "$1" == "-h" ]]; then
 	exec /usr/libexec/s2i/usage
@@ -19,8 +24,8 @@ if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
   mv /tmp/artifacts/. ./
 fi
 
-echo "---> Installing additional interpreters..."
 if [[ ! "x$ZEPPELIN_INTERPRETERS" == "x" ]]; then
+  echo "---> Installing additional interpreters..."
   read -a interpreters <<< $(echo $ZEPPELIN_INTERPRETERS | sed 's/,/ /g' )
 
   for interpreter in ${interpreters[@]}; do
@@ -28,5 +33,13 @@ if [[ ! "x$ZEPPELIN_INTERPRETERS" == "x" ]]; then
   done
 fi
 
-#echo "---> Building application from source..."
-# TODO: Add build steps for your application, eg npm install, bundle install, pip install, etc.
+if [ -d /tmp/src/configuration/ ]; then
+  echo "---> Found configuration files. Copying to the distribution..."
+  mv /tmp/src/configuration/* /opt/zeppelin/conf
+fi
+
+echo "---> Copying notebook files to the distribution..."
+if [ "$(ls /tmp/src/ 2>/dev/null)" ]; then
+  mv /tmp/src/* /opt/zeppelin/notebook
+fi 
+

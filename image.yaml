@@ -13,7 +13,7 @@ labels:
   - name: "io.openshift.tags"
     value: "radanalytics,apache_zeppelin,notebook"
   - name: "io.openshift.s2i.scripts-url"
-    value: "image:///usr/local/s2i/bin"
+    value: "image:///usr/local/s2i"
 envs:
   - name: PATH
     value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin

@@ -2,7 +2,7 @@ Apache Zeppelin image for OpenShift
 -----------------------------------
 
 Source code to build and run [Apache Zeppelin](http://zeppelin.apache.org/) on top of
-[OpenShift](https://www.openshift.org/). This image used [dogen](https://github.com/jboss-dockerfiles/dogen)
+[OpenShift](https://www.openshift.org/). This image uses [dogen](https://github.com/jboss-dockerfiles/dogen)
 to generate the environment to build the Docker image. To build the image, run the following commands:
 
 ```
