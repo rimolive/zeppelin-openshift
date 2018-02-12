@@ -26,13 +26,17 @@ ports:
 packages:
   - epel-release
   - gcc
+  - python
   - python-devel
+  - R
 cmd:
   - "/opt/zeppelin/bin/zeppelin.sh"
 scripts:
   - package: zeppelin
     exec: run
   - package: pyspark
+    exec: run
+  - package: cassandra
     exec: run
   - package: s2i-interpreters
     exec: run
