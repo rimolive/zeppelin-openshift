@@ -4,6 +4,6 @@ echo "checking length of file $1"
 
 if ! [ -s "$1" ]; then
     filename=$(basename $1)
-    version=$(echo $filename | cut -d '_' -f2)
+    version=$(echo $filename | cut -d '-' -f2)
     wget http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-$version/zeppelin-$version-bin-netinst.tgz -O $1
 fi
