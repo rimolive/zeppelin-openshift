@@ -1,6 +1,7 @@
 #!/bin/bash
 set -e
 
+SCRIPT_DIR=$(dirname $0)
 ARTFACTS_DIR=/tmp/artifacts
 VERSION=0.8.0
 
