@@ -1,0 +1,5 @@
+#!/bin/bash
+set -e
+
+yum install -y python-pip && yum clean all
+pip install matplotlib

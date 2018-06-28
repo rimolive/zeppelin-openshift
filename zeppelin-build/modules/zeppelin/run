@@ -1,0 +1,17 @@
+#!/bin/bash
+set -e
+
+ARTFACTS_DIR=/tmp/artifacts
+VERSION=0.8.0
+
+yum install -y R
+yum clean all
+
+{
+	cd $ARTFACTS_DIR
+	tar xvf zeppelin-$VERSION-bin-netinst.tgz
+	mv zeppelin-$VERSION-bin-netinst /opt
+	ln -s /opt/zeppelin-$VERSION-bin-netinst /opt/zeppelin
+}
+
+chown 185:0 /opt/zeppelin && chmod a+rwX -R /opt/zeppelin

@@ -4,6 +4,9 @@ set -e
 ARTFACTS_DIR=/tmp/artifacts
 VERSION=0.8.0
 
+yum install -y R
+yum clean all
+
 {
 	cd $ARTFACTS_DIR
 	tar xvf zeppelin-$VERSION-bin-netinst.tgz

@@ -1,0 +1,45 @@
+#!/bin/bash -e
+#
+# S2I assemble script for the 'zeppelin-openshift' image.
+# The 'assemble' script builds your application source so that it is ready to run.
+#
+# For more information refer to the documentation:
+#	https://github.com/openshift/source-to-image/blob/master/docs/builder_image.md
+#
+
+if [ "${SCRIPT_DEBUG}" = "true" ] ; then
+    set -x
+    echo "Script debugging is enabled, allowing bash commands and their arguments to be printed as they are executed"
+fi
+
+# If the 'zeppelin-openshift' assemble script is executed with the '-h' flag, print the usage.
+if [[ "$1" == "-h" ]]; then
+	exec /usr/libexec/s2i/usage
+fi
+
+# Restore artifacts from the previous build (if they exist).
+#
+if [ "$(ls /tmp/artifacts/ 2>/dev/null)" ]; then
+  echo "---> Restoring build artifacts..."
+  mv /tmp/artifacts/. ./
+fi
+
+if [[ ! "x$ZEPPELIN_INTERPRETERS" == "x" ]]; then
+  echo "---> Installing additional interpreters..."
+  read -a interpreters <<< $(echo $ZEPPELIN_INTERPRETERS | sed 's/,/ /g' )
+
+  for interpreter in ${interpreters[@]}; do
+    $ZEPPELIN_HOME/bin/install-interpreter.sh --name $interpreter
+  done
+fi
+
+if [ -d /tmp/src/configuration/ ]; then
+  echo "---> Found configuration files. Copying to the distribution..."
+  mv /tmp/src/configuration/* /opt/zeppelin/conf
+fi
+
+echo "---> Copying notebook files to the distribution..."
+if [ "$(ls /tmp/src/ 2>/dev/null)" ]; then
+  mv /tmp/src/* /opt/zeppelin/notebook
+fi 
+
