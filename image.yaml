@@ -41,5 +41,5 @@ scripts:
   - package: s2i-interpreters
     exec: run
 sources:
-  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.7.3/zeppelin-0.7.3-bin-netinst.tgz
-    md5sum: 1ff97dce6e0241305a6d03c5aa6b3fbd
+  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.8.0/zeppelin-0.8.0-bin-netinst.tgz
+    md5sum: 5159770bc63acf5c1fcb7b6fda693bb7
