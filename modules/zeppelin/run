@@ -4,6 +4,11 @@ set -e
 ARTFACTS_DIR=/tmp/artifacts
 VERSION=0.8.0
 
+# If there is a zero-length zeppelin tarball, find the version in the
+# name and download from Apache
+fullname=$(find $ARTIFACTS_DIR -name zeppelin-[0-9.]*\-bin-netinst.tgz)
+/bin/sh -x $SCRIPT_DIR/check_for_download $fullname
+
 yum install -y R
 yum clean all
 

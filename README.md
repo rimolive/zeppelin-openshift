@@ -1,3 +1,6 @@
+![Docker build status](https://img.shields.io/docker/build/rimolive/zeppelin-openshift.svg)
+![GitHub tag](https://img.shields.io/github/tag/rimolive/zeppelin-openshift.svg)
+
 Apache Zeppelin image for OpenShift
 -----------------------------------
 
