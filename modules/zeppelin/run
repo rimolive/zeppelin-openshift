@@ -20,4 +20,5 @@ yum clean all
 	ln -s /opt/zeppelin-$VERSION-bin-netinst /opt/zeppelin
 }
 
-chown 185:0 /opt/zeppelin && chmod a+rwX -R /opt/zeppelin
+chown 185:0 -R /opt/zeppelin/conf && chmod g+rwX -R /opt/zeppelin/conf
+chown 185:0 -R /opt/zeppelin/notebook && chmod g+rwX -R /opt/zeppelin/notebook
