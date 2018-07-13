@@ -36,13 +36,13 @@ fi
 if [ -d /tmp/src/configuration/ ]; then
   echo "---> Found configuration files. Copying to the distribution..."
   mv /tmp/src/configuration/* $ZEPPELIN_HOME/conf
-  rm /tmp/src/configuration
-  chmod -R 755 $ZEPPELIN_HOME/conf
+  rm -rf /tmp/src/configuration
+  chmod -R 775 $ZEPPELIN_HOME/conf
 fi
 
 echo "---> Copying notebook files to the distribution..."
 if [ "$(ls /tmp/src/ 2>/dev/null)" ]; then
   mv /tmp/src/* $ZEPPELIN_HOME/notebook
-  chmod -R 755 $ZEPPELIN_HOME/notebook
+  chmod -R 775 $ZEPPELIN_HOME/notebook
 fi 
 
