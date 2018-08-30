@@ -54,6 +54,10 @@ objects:
           ports:
           - containerPort: 8080
             protocol: TCP
+          - containerPort: 42000
+            protocol: TCP
+          - containerPort: 42100
+            protocol: TCP
           resources: {}
           terminationMessagePath: /dev/termination-log
           terminationMessagePolicy: File

@@ -32,13 +32,13 @@ LABEL name="$JBOSS_IMAGE_NAME" \
       com.redhat.component="rimolive-openshift-zeppelin-docker"  \
       io.k8s.description="A web-based notebook that enables interactive data analytics" \
       io.k8s.display-name="Apache Zeppelin" \
-      io.openshift.expose-services="8080:http" \
+      io.openshift.expose-services="8080:http,42000:http,42100:http" \
       io.openshift.tags="radanalytics,apache_zeppelin,notebook" \
       io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
       org.concrt.version="1.4.1"
 
 # Exposed ports
-EXPOSE 8080
+EXPOSE 8080 42000 42100
 
 USER root
 
