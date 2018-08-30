@@ -10,7 +10,7 @@ labels:
   - name: "io.k8s.display-name"
     value: "Apache Zeppelin"
   - name: "io.openshift.expose-services"
-    value: "8080:http"
+    value: "8080:http,42000:http,42100:http"
   - name: "io.openshift.tags"
     value: "radanalytics,apache_zeppelin,notebook"
   - name: "io.openshift.s2i.scripts-url"
@@ -24,6 +24,8 @@ envs:
     value: /opt/app-root
 ports:
   - value: 8080
+  - value: 42000
+  - value: 42100
 modules:
   install:
     - name: zeppelin

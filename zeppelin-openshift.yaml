@@ -97,8 +97,27 @@ objects:
       deploymentconfig: ${APPLICATION_NAME}
     sessionAffinity: None
     type: ClusterIP
-  status:
-    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    labels:
+      app: ${APPLICATION_NAME}
+    name: ${APPLICATION_NAME}-headless
+  spec:
+    clusterIP: None
+    ports:
+      - name: driver-rpc-port
+        port: 7078
+        protocol: TCP
+        targetPort: 7078
+      - name: blockmanager
+        port: 7079
+        protocol: TCP
+        targetPort: 7079
+    selector:
+      deploymentconfig: ${APPLICATION_NAME}
+    sessionAffinity: None
+    type: ClusterIP
 - apiVersion: v1
   kind: Route
   metadata:
