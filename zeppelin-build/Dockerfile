@@ -21,7 +21,7 @@ FROM radanalyticsio/openshift-spark:2.3-latest
 # Environment variables
 ENV JBOSS_IMAGE_NAME="rimolive/openshift-zeppelin" \
     JBOSS_IMAGE_VERSION="1.3" \
-    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin" \
+    PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin:/opt/miniconda/bin" \
     ZEPPELIN_HOME="/opt/zeppelin" \
     APP_ROOT="/opt/app-root" 
 
@@ -44,9 +44,9 @@ USER root
 
 
 # Install required RPMs and ensure that the packages were installed
-RUN yum install -y  epel-release gcc python python-devel \
+RUN yum install -y  epel-release gcc python python-devel bzip2 \
     && yum clean all && \
-    rpm -q  epel-release gcc python python-devel
+    rpm -q  epel-release gcc python python-devel bzip2
 
 # Add all artifacts to the /tmp/artifacts
 # directory
