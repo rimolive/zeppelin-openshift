@@ -16,7 +16,7 @@
 #
 # This is a Dockerfile for the rimolive/openshift-zeppelin:1.3 image.
 
-FROM radanalyticsio/openshift-spark:2.3-latest
+FROM radanalyticsio/openshift-spark:2.3.0-4
 
 # Environment variables
 ENV JBOSS_IMAGE_NAME="rimolive/openshift-zeppelin" \
