@@ -19,7 +19,7 @@ yum clean all
 	tar xvf zeppelin-$VERSION-bin-netinst.tgz
 	mv zeppelin-$VERSION-bin-netinst /opt
 	ln -s /opt/zeppelin-$VERSION-bin-netinst /opt/zeppelin
-	cp $ADDED_DIR/zeppelin.sh /opt/zeppelin/bin
+	cp $ADDED_DIR/common.sh /opt/zeppelin/bin
 }
 
 chown -R 185:0 /opt/zeppelin-$VERSION-bin-netinst

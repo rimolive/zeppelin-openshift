@@ -39,7 +39,7 @@ LABEL name="$JBOSS_IMAGE_NAME" \
       org.concrt.version="1.4.1"
 
 # Exposed ports
-EXPOSE 8080 42000 42100
+EXPOSE 8080
 
 USER root
 
