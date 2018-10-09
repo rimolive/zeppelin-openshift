@@ -23,7 +23,8 @@ ENV JBOSS_IMAGE_NAME="rimolive/openshift-zeppelin" \
     JBOSS_IMAGE_VERSION="1.3" \
     PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin:/opt/miniconda/bin" \
     ZEPPELIN_HOME="/opt/zeppelin" \
-    APP_ROOT="/opt/app-root" 
+    APP_ROOT="/opt/app-root" \
+    STI_SCRIPTS_PATH="/usr/libexec/s2i" 
 
 # Labels
 LABEL name="$JBOSS_IMAGE_NAME" \
@@ -34,7 +35,7 @@ LABEL name="$JBOSS_IMAGE_NAME" \
       io.k8s.display-name="Apache Zeppelin" \
       io.openshift.expose-services="8080:http,42000:http,42100:http" \
       io.openshift.tags="radanalytics,apache_zeppelin,notebook" \
-      io.openshift.s2i.scripts-url="image:///usr/local/s2i" \
+      io.openshift.s2i.scripts-url="image:///usr/libexec/s2i" \
       org.concrt.version="1.4.1"
 
 # Exposed ports

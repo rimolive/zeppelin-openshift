@@ -8,5 +8,6 @@ ADDED_DIR=${SCRIPT_DIR}/added
 chown -R 185:root $SCRIPT_DIR
 chmod -R g+rwX $SCRIPT_DIR
 
-cp -r ${ADDED_DIR}/s2i/ /usr/local
-chmod 755 /usr/local/s2i/*
+mkdir -p $STI_SCRIPTS_PATH
+cp $ADDED_DIR/* $STI_SCRIPTS_PATH
+chmod 755  $STI_SCRIPTS_PATH/*

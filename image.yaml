@@ -14,7 +14,7 @@ labels:
   - name: "io.openshift.tags"
     value: "radanalytics,apache_zeppelin,notebook"
   - name: "io.openshift.s2i.scripts-url"
-    value: "image:///usr/local/s2i"
+    value: "image:///usr/libexec/s2i"
 envs:
   - name: PATH
     value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin:/opt/miniconda/bin
@@ -22,6 +22,8 @@ envs:
     value: /opt/zeppelin
   - name: APP_ROOT
     value: /opt/app-root
+  - name: STI_SCRIPTS_PATH
+    value: /usr/libexec/s2i
 ports:
   - value: 8080
   - value: 42000

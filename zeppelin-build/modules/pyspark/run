@@ -3,7 +3,6 @@ set -e
 
 yum install -y python-pip && yum clean all
 pip install --upgrade pip
-pip install matplotlib
 
 #Python interpreter lets use conda to install libs and create envs
 curl -k https://repo.continuum.io/miniconda/Miniconda2-latest-Linux-x86_64.sh -o miniconda.sh
