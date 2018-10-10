@@ -40,8 +40,9 @@ packages:
   - python-devel
   - bzip2
 artifacts:
-  - url: http://ftp.unicamp.br/pub/apache/zeppelin/zeppelin-0.8.0/zeppelin-0.8.0-bin-netinst.tgz
+  - url: http://mirror.nbtelecom.com.br/apache/zeppelin/zeppelin-0.8.0/zeppelin-0.8.0-bin-netinst.tgz
     md5: 5159770bc63acf5c1fcb7b6fda693bb7
+
 run:
   user: 185
   cmd:

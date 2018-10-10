@@ -128,7 +128,7 @@ if [[ -z "${ZEPPELIN_SPARK_YARN_CLUSTER}" ]]; then
 else
     JAVA_INTP_OPTS+=" -Dlog4j.configuration=log4j_yarn_cluster.properties"
 fi
-JAVA_INTP_OPTS+=" -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+UseParallelOldGC -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:MaxMetaspaceSize=100m -XX:AdaptiveSizePolicyWeight=90 -Xss228k"
+JAVA_INTP_OPTS+=" -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap -XX:+UseParallelOldGC -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:MinHeapFreeRatio=10 -XX:MaxHeapFreeRatio=20 -XX:GCTimeRatio=4 -XX:MaxMetaspaceSize=100m -XX:AdaptiveSizePolicyWeight=90 -Xss512k"
 export JAVA_INTP_OPTS
 
 
