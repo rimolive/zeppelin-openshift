@@ -1,5 +1,7 @@
 schema_version: 1
 
 name: s2i-interpreters
+version: 1.0
+
 execute:
 - script: run

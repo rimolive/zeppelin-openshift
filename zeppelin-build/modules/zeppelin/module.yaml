@@ -1,5 +1,40 @@
-schema_version: 1
-
-name: zeppelin
+artifacts:
+- md5: c180eeb7395c8ba0d4be3ab1750918c7
+  name: zeppelin-0.8.2-bin-netinst.tgz
+  target: zeppelin-0.8.2-bin-netinst.tgz
+  url: https://www-us.apache.org/dist/zeppelin/zeppelin-0.8.2/zeppelin-0.8.2-bin-netinst.tgz
+description: Install Apache Zeppelin
+envs:
+- name: PATH
+  value: /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/opt/zeppelin/bin:/opt/miniconda/bin
+- name: ZEPPELIN_HOME
+  value: /opt/zeppelin
+- name: APP_ROOT
+  value: /opt/app-root
+- name: STI_SCRIPTS_PATH
+  value: /usr/libexec/s2i
 execute:
-- script: run
+- directory: zeppelin
+  module_name: zeppelin
+  name: zeppelin/run
+  script: run
+labels: []
+modules:
+  install: []
+  repositories: []
+name: zeppelin
+osbs:
+  configuration: {}
+  repository: {}
+packages:
+  install:
+  - epel-release
+  - gcc
+  - python
+  - python-devel
+  - bzip2
+  repositories: []
+ports: []
+schema_version: 1
+version: 1.0
+volumes: []

@@ -1,5 +1,22 @@
-schema_version: 1
-
-name: s2i-interpreters
+artifacts: []
+envs: []
 execute:
-- script: run
+- directory: s2i-interpreters
+  module_name: s2i-interpreters
+  name: s2i-interpreters/run
+  script: run
+labels: []
+modules:
+  install: []
+  repositories: []
+name: s2i-interpreters
+osbs:
+  configuration: {}
+  repository: {}
+packages:
+  install: []
+  repositories: []
+ports: []
+schema_version: 1
+version: 1.0
+volumes: []

@@ -5,14 +5,14 @@ DOCKERFILE_CONTEXT=zeppelin-build
 .PHONY: build push clean clean-context context zero-tarballs
 
 build: $(DOCKERFILE_CONTEXT)
-	docker build --pull -t $(LOCAL_IMAGE) $(DOCKERFILE_CONTEXT)
+	podman build --pull -t $(LOCAL_IMAGE) $(DOCKERFILE_CONTEXT)
 
 push: build
-	docker tag $(LOCAL_IMAGE) $(PUSH_IMAGE)
-	docker push $(PUSH_IMAGE)
+	podman tag $(LOCAL_IMAGE) $(PUSH_IMAGE)
+	podman push $(PUSH_IMAGE)
 
 clean: clean-context
-	-docker rmi $(LOCAL_IMAGE) $(PUSH_IMAGE)
+	-podman rmi $(LOCAL_IMAGE) $(PUSH_IMAGE)
 
 clean-context:
 	-rm -rf target
@@ -23,7 +23,7 @@ context: $(DOCKERFILE_CONTEXT)
 $(DOCKERFILE_CONTEXT): $(DOCKERFILE_CONTEXT)/Dockerfile $(DOCKERFILE_CONTEXT)/modules
 
 $(DOCKERFILE_CONTEXT)/Dockerfile $(DOCKERFILE_CONTEXT)/scripts:
-	concreate generate --descriptor image.yaml
+	cekit build --dry-run podman
 	cp -R target/image/* $(DOCKERFILE_CONTEXT)
 
 zero-tarballs:

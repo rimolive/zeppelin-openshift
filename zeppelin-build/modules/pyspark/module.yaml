@@ -1,5 +1,22 @@
-schema_version: 1
-
-name: pyspark
+artifacts: []
+envs: []
 execute:
-- script: run
+- directory: pyspark
+  module_name: pyspark
+  name: pyspark/run
+  script: run
+labels: []
+modules:
+  install: []
+  repositories: []
+name: pyspark
+osbs:
+  configuration: {}
+  repository: {}
+packages:
+  install: []
+  repositories: []
+ports: []
+schema_version: 1
+version: 1.0
+volumes: []

@@ -3,8 +3,8 @@ set -e
 
 SCRIPT_DIR=$(dirname $0)
 ADDED_DIR=$SCRIPT_DIR/added
-ARTFACTS_DIR=/tmp/artifacts
-VERSION=0.8.0
+ARTIFACTS_DIR=/tmp/artifacts
+VERSION=0.8.2
 
 # If there is a zero-length zeppelin tarball, find the version in the
 # name and download from Apache
@@ -15,7 +15,7 @@ yum install -y R
 yum clean all
 
 {
-	cd $ARTFACTS_DIR
+	cd $ARTIFACTS_DIR
 	tar xvf zeppelin-$VERSION-bin-netinst.tgz
 	mv zeppelin-$VERSION-bin-netinst /opt
 	ln -s /opt/zeppelin-$VERSION-bin-netinst /opt/zeppelin

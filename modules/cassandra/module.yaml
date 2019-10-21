@@ -1,5 +1,7 @@
 schema_version: 1
 
 name: cassandra
+version: 1.0
+
 execute:
 - script: run
