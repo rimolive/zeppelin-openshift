@@ -40,6 +40,14 @@ if [ -d /tmp/src/configuration/ ]; then
   chmod -R 775 $ZEPPELIN_HOME/conf
 fi
 
+if [ -d /tmp/src/jars/ ]; then
+  echo "---> Found jars files. Copying to the distribution"
+  mv /tmp/src/jars/* $ZEPPELIN_HOME/lib
+  rm -rf /tmp/src/jars
+  chmod -R 775 $ZEPPELIN_HOME/lib
+fi
+
+
 echo "---> Copying notebook files to the distribution..."
 if [ "$(ls /tmp/src/ 2>/dev/null)" ]; then
   mv /tmp/src/* $ZEPPELIN_HOME/notebook
